@@ -13,24 +13,23 @@ private:
 	
 	
 public:
+	void outPut(const char* name);
 	Cstring();
 	Cstring(int s, char sym = '*');
 	Cstring(const Cstring& string);
-	Cstring(char* string);
+	Cstring(const char* string);
 	~Cstring();
 	Cstring* operator = (char& string);
 	Cstring& operator=(const Cstring& cms);
 	Cstring operator+(const Cstring& cms);
 	Cstring& operator+=(const Cstring& cms);
 	friend ostream& operator<<(ostream& stream, const Cstring& _str);
-	friend istream& operator>>(istream& stream, const Cstring _str);
+	friend istream& operator>>(istream& stream, Cstring& _str);
 	
-
+	
 };
-
 ostream& operator<<(ostream& stream, const Cstring& _str);
-istream& operator>>(istream& stream, const Cstring& _str);
-
+istream& operator>>(istream& stream, Cstring& _str);
 
 class Ccomplex
 {

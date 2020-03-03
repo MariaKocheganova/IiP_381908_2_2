@@ -3,6 +3,11 @@
 
 using namespace std;
 
+void Cstring::outPut(const char* name)
+{
+	cout << name << ": " << str << endl;
+}
+
 Cstring::Cstring()
 {
 	size = 0;
@@ -34,23 +39,13 @@ Cstring::Cstring(const Cstring& string) {
 
 }
 
-Cstring::Cstring(char* string) {
-	int len = 0, size = 0;
-	while (*string != 0)
-	{
-		len++;
-		string++;
-	}
+Cstring::Cstring(const char* string) {
+	len = 0;
+	while (string[len]) len++;
 	size = len + 1;
-	string -= size;
-	for (int i = 0; i < len; i++)
-	{
-		str[i] = *string;
-		string += 1;
-	}
-	str[size] = 0;
+	str = new char[size];
+	for (int i = 0; i < size; i++) str[i] = string[i];
 }
-
 Cstring::~Cstring()
 {
 	delete[] str;
@@ -96,7 +91,8 @@ Cstring& Cstring::operator=(const Cstring& cms)
 	{
 		size = cms.len + 1;
 		len = size - 1;
-		delete []str;
+		delete[]str;
+		str = new char[size];
 	}
 	int i = 0;
 	while (cms.str[i])
@@ -149,15 +145,15 @@ Cstring& Cstring::operator+=(const Cstring& cms) {
 	str[len] = 0;
 	return *this;
 }
+istream& operator>>(istream& stream, Cstring& _str) {
+	char string[1000];
+	int i = 0;
+	stream.getline(string, 1000);
+	_str = string;
+	return stream;
+}
 ostream& operator<<(ostream& stream, const Cstring& _str) {
 	stream << _str.str << endl;
 	return stream;
 }
 
-istream& operator>>(istream& stream, Cstring& _str) {
-	char string[1000];
-	int i=0;
-	stream.getline(string, 1000);
-	_str = string;
-	return stream;
-}
