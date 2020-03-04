@@ -7,9 +7,14 @@ int main() {
 	CString s2(10, '*');
 	CString s3(s2);
 	CString s4("123456");
-	s1.Output();
-	s2.Output();
-	s3.Output();
-	s4.Output();
+	CString s5;
+	s1 = s2 + s4;
+	cout << s1;
+	s1 = s1 + s4;
+	cout << s1;
+	s1 += s2;
+	cout << s1;
+	cin >> s5;
+	cout << s5;
 	return 0;
 }
