@@ -12,7 +12,7 @@ public:
 	CString(const CString& string);
 	CString(char* string);
 	~CString();
-	char GetSym(int ind) const { return str[ind]; };
+	char GetSym(int ind) const { if (0 <= ind && ind < len) { return str[ind]; } };
 	int GetSize() const { return size; };
 	int GetLen() const { return len; };
 	void Output() const {

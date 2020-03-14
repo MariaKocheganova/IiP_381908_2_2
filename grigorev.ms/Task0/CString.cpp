@@ -60,7 +60,7 @@ CString CString::operator*(int a) {
 			res.str[i * len + j] = str[j];
 		}
 	}
-	res.str[size - 1] = 0;
+	res.str[res.size - 1] = 0;
 	return res;
 }
 CString& CString::operator=(const CString& a) {
@@ -83,7 +83,7 @@ CString& CString::operator+=(const CString& a) {
 	ftstr[size - 1] = 0;
 	len = len + a.len;
 	size = len + 1;
-	delete str;
+	delete []str;
 	str = new char[size];
 	for (int i = 0; i < ftlen; i++)
 		str[i] = ftstr[i];
@@ -98,16 +98,16 @@ istream& operator>>(istream& is, CString& a) {
 	int i = 0;
 	is.getline(s, 255);
 	while (s[i] != 0) { i++; }
-	a.len = i - 1;
-	a.size = i;
-	a.str = new char[a.size + 1];
+	a.len = i;
+	a.size = i + 1;
+	a.str = new char[a.size];
 	for (int j = 0; j < i; j++) {
 		a.str[j] = s[j];
 	}
-	a.str[a.size] = 0;
+	a.str[a.len] = 0;
 	return is;
 }
 ostream& operator<<(ostream& os, CString& a) {
-	os << a.str << '\n';
+	os << a.str;
 	return(os);
 }
