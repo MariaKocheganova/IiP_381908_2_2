@@ -1,4 +1,5 @@
 #pragma once
+#pragma once
 #include <iostream>
 #include <fstream>
 #include <clocale>
@@ -18,14 +19,14 @@ public:
 	Date(); //по умолчанию
 	Date(int i, int j, int k); // инициализатор
 	Date(const Date& s); //копирование
-	Date(char* string); //преобразование типа
+	Date(string s); //преобразование типа
 	~Date();
 
 	// OPERATIONS
 
 	Date& operator=(const Date& c);
-	Date& operator+(int j);
-	Date& operator-(int j);
+	Date operator+(int j);
+	Date operator-(int j);
 	bool operator==(const Date& c);
 	bool operator!=(const Date& c);
 	friend ostream& operator<<(ostream& os, const Date& s);

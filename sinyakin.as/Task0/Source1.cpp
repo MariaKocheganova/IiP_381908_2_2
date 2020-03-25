@@ -9,13 +9,7 @@ Date::Date()
 	Year = 0;
 }
 
-Date::Date(int i, int j, int k)
-{
-	Day = i;
-	Month = j;
-	Year = k;
-}
-
+Date::Date(int i, int j, int k) : Day(i), Month(j), Year(k) { }
 
 Date::Date(const Date& s)
 {
@@ -23,6 +17,24 @@ Date::Date(const Date& s)
 	Month = s.Month;
 	Year = s.Year;
 }
+
+Date::Date(string s)
+{
+
+	string s1;
+	string s2;
+	string s3;
+	s1.assign(s, 0, 2);
+	int i = std::stoi(s1);
+	s2.assign(s, 3, 5);
+	int i2 = std::stoi(s2);
+	Day = i;
+	s3.assign(s, 6, 10);
+	int i3 = std::stoi(s3);
+	Month = i2;
+	Year = i3;
+}
+
 
 Date::~Date()
 {
@@ -39,107 +51,53 @@ Date& Date::operator=(const Date& c)
 	return *this;
 }
 
-Date& Date::operator+(int j)
+Date Date::operator+(int j)
 {
-
-	int n;
-	cout << "Enter a number of days you wanna add to your recent date - ";
-	cin >> n;
-	int EndMonth[] = { 0,31,28,31,30,31,30,31,31,30,31,30,31 };
-	int m;
-	int l = 0;
-	int p;
-	int a;
-	for (m = 0; m < Month; m++)
-		l = l + EndMonth[m];
-	l = l + j + n;
-	cout << "The new brand new date is -  " << endl;
-	if (l <= 365)  //Если не конец года
+	Date res;
+	res.Day = this->Day;
+	res.Month = this->Month;
+	res.Year = this->Year;
+	res.Day = res.Day + j;
+	while (res.Day > 30)
 	{
-		for (m = 0; m < 13; m++)
+		if (res.Day > 30)
 		{
-			p = l - EndMonth[m];
-			if (p <= EndMonth[m + 1])
+			res.Day = res.Day - 30;
+			res.Month++;
+			if (res.Month > 12)
 			{
-				a = m + 1;
-				break;
+				res.Month = res.Month - 12;
+				res.Year++;
 			}
-			else l = p;
+
 		}
-		cout << p << "." << a << ":" << Year;
 	}
-	else
-	{
-		l = l - 365;  //Если конец года - меняем год на следующий
-		for (m = 0; m < 13; m++)
-		{
-			p = l - EndMonth[m];
-			if (p <= EndMonth[m + 1])
-			{
-				a = m + 1;
-				break;
-			}
-			else l = p;
-		}
-		cout << p << "." << a << ":" << Year + 1;
-
-	}
-
-	return *this;
-
+	return res;
 }
 
-Date& Date::operator-(int j)
+Date Date::operator-(int j)
 {
-
-	int n;
-	cout << "Enter a number of days you wanna cut of your recent date - ";
-	cin >> n;
-	int EndMonth[] = { 0,31,28,31,30,31,30,31,31,30,31,30,31 };
-	int m;
-	int l = 0;
-	int p;
-	int a;
-	for (m = 0; m < Month; m++)
-		l = l + EndMonth[m];
-	l = l + j - n;
-	cout << "The new brand new date is -  " << endl;
-	if (l <= 365)  //Если не конец года
+	Date res;
+	res.Day = this->Day;
+	res.Month = this->Month;
+	res.Year = this->Year;
+	res.Day = res.Day - j;
+	while (res.Day <= 0)
 	{
-		for (m = 0; m < 13; m++)
+		if (res.Day <= 0)
 		{
-			p = l - EndMonth[m];
-			if (p <= EndMonth[m + 1])
+			res.Day = 30 + res.Day;
+			res.Month--;
+			if (res.Month <= 0)
 			{
-				a = m + 1;
-				break;
+				res.Month = 12 - res.Month;
+				res.Year--;
 			}
-			else l = p;
+
 		}
-		cout << p << "." << a << ":" << Year;
 	}
-	else
-	{
-		l = l - 365;  //Если конец года - меняем год на следующий
-		for (m = 0; m < 13; m++)
-		{
-			p = l - EndMonth[m];
-			if (p <= EndMonth[m + 1])
-			{
-				a = m + 1;
-				break;
-			}
-			else l = p;
-		}
-		cout << p << "." << a << ":" << Year - 1;
-
-	}
-
-	return *this;
-
+	return res;
 }
-
-
 
 bool Date::operator==(const Date& c)
 {
@@ -149,7 +107,6 @@ bool Date::operator==(const Date& c)
 	else return false;
 
 }
-
 
 bool Date::operator!=(const Date& c)
 {
