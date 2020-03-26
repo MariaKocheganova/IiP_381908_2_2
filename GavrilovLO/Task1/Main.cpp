@@ -1,5 +1,6 @@
 #include"Header.h"
 #include<stdlib.h>
+#include <cassert>
 using namespace std;
 void main() {
 	int f1;
@@ -9,44 +10,36 @@ void main() {
 	Money a;
 	cin >> a;
 	cin >> f;
+
+
 	int c;
 	cout << "1)symma 2 chetov" << endl;
-	cout << "2)symma" << endl;
-	cout << "3)proizvedenie" << endl;
-	cout << "4)delenie" << endl;
-	cout << "5)sravnenie" << endl;
+
+	cout << "2)proizvedenie" << endl;
+	cout << "3)delenie" << endl;
+	cout << "4)sravnenie" << endl;
 	cin >> c;
 	switch (c) {
 	case 1:
 		a = a + f;
 		cout << a;
 		break;
+
 	case 2:
-		a += f;
-		cout << a;
-		break;
-	case 3:
 		s = 10;
 		a = a* s;
-
-
 		cout << a;
 
 		break;
-	case 4:
-		j = 10;
+	case 3:
+		j = 6;
 		a = a / j;
 		cout << a;
 		break;
-	case 5:
+	case 4:
 		a == f;
 		break;
 
-	case 6:
-		s = 10;
-		a = a* s;
-		cout << a;
-		break;
 	}
 
 	getchar();
