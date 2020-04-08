@@ -6,9 +6,10 @@ int main() {
 	cout << a << endl;
 	a = b;
 	cout << a << endl;
-	a = a + d;
+	Time tem1(1,30,01), tem2(0,30,00);
+	a = tem1 + tem2;
 	cout << a << endl;
-	a = d - b;
+	a = tem1 - tem2;
 	cout << a << endl;
 	if (a < b) cout << "+" << endl;
 	if (b > a) cout << "+" << endl;
