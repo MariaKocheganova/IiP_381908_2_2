@@ -14,12 +14,12 @@ Time::Time() {
 
 }
 Time::Time(int i, int j, int k) {
-		if ((i <= 23 && i>=0) && (j <= 59 && j>= 0) && (k <= 59 && k>= 0)) {
-			hou = i;
-			min = j;
-			sec = k;
-		}
 
+	if ((i <= 23 && i >= 0) && (j <= 59 && j >= 0) && (k <= 59 && k >= 0)) {
+		hou = i;
+		min = j;
+		sec = k;
+	}
 	
 }
 Time::Time(const Time& a) {
@@ -32,9 +32,9 @@ Time::Time(const string& a) {
 
 	string temp = a.substr(0, 2);
 	hou = atoi(temp.c_str());
-	temp = a.substr(2, 2);
+	temp = a.substr(3, 2);
 	min = atoi(temp.c_str());
-	temp = a.substr(5, 2);
+	temp = a.substr(6, 2);
 	sec = atoi(temp.c_str());
 
 
@@ -50,6 +50,7 @@ Time& Time::operator=(const Time& a) {
 }
 Time Time::operator+(const Time& temp) {
 	Time res;
+	int temp_min;
 	if (hou + temp.hou > 23) {
 		if (temp.hou == 24) res.hou = temp.hou;
 		else {
@@ -59,12 +60,13 @@ Time Time::operator+(const Time& temp) {
 	else  res.hou = hou + temp.hou;
 	if (min + temp.min > 59) {
 		res.min = min + temp.min - 60;
+		temp_min = res.min;
 		res.hou += (min + temp.min) / 60;
 	}
 	else res.min = min + temp.min;
 	if (sec + temp.sec > 59) {
 		res.sec = sec + temp.sec - 60;
-		res.min = (sec + temp.sec) / 60;
+		res.min = (sec + temp.sec) / 60 + temp_min;
 	}
 	else res.sec = sec + temp.sec;
 
@@ -81,22 +83,25 @@ Time Time::operator+(const Time& temp) {
 }
 
 Time Time::operator-(const Time& temp) {
-	Time res;
+	Time res(0,0,0);
+	int temp_min, temp_hou;
 	if (sec - temp.sec < 0) {
 		res.min = min - 1;
+		temp_min = res.min;
 		res.sec = 60 + (sec - temp.sec);
 	}
 	else res.sec = sec - temp.sec;
 
 	if (min - temp.min < 0) {
 		res.hou = hou - 1;
-		res.min = 60 + (min - temp.min);
+		temp_hou = res.hou;
+		res.min = 60 + (min - temp.min) + temp_min;
 	}
 	else res.min = min - temp.min;
 
 	if (hou - temp.hou < 0) {
 		if (temp.hou == 24) res.hou += 0;
-		else res.hou = hou - temp.hou + 24;
+		else res.hou = hou - temp.hou + 24 + temp_hou;
 	}
 	else res.hou = hou - temp.hou;
 	if (res.sec == 60) {
@@ -160,9 +165,9 @@ istream& operator>>(istream& is, Time& a) {
 	is >> time;
 	temp = time.substr(0, 2);
 	a.hou = atoi(temp.c_str());
-	temp = time.substr(2, 2);
+	temp = time.substr(3, 2);
 	a.min = atoi(temp.c_str());
-	temp = time.substr(5, 2);
+	temp = time.substr(6, 2);
 	a.sec = atoi(temp.c_str());
 	return is;
 }
