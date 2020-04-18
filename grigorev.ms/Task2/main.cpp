@@ -8,7 +8,7 @@ int main() {
 	fin.open("D://IIP/IiP_381908_2_2/grigorev.ms/x64/Debug/Octal_In.txt");
 	fout.open("D://IIP/IiP_381908_2_2/grigorev.ms/x64/Debug/Octal_Out.txt");
 	if (fout.is_open()) { cout << "all is ok" << endl; }
-	Octal a("12"), b("6");
+	Octal a("111"), b("12");
 	Octal c = a - b;
 	fout << c << endl;
 	c = a - b;

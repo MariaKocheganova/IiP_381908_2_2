@@ -18,6 +18,13 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="LongLong.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="LongLong.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{8C7BE647-F43A-4208-99F1-74FE7B2D2D60}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -141,13 +148,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="LongLong.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="LongLong.cpp" />
-    <ClCompile Include="main.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

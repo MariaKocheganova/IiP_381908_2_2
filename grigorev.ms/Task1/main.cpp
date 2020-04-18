@@ -1,36 +1,31 @@
 #include"LongLong.h"
 #include<iostream>
-#include<locale.h>
+#include<string>
 using namespace std;
 int main() {
-	setlocale(LC_CTYPE, "Russian");
-	LongLong a("10000");
-	LongLong b, c;
+	string ans;
+	ans = Summ_str("999", "999");
+	cout << ans << endl;
+	cout << Reverse("321") << endl;
+	cout << Reverse(Multpl_str("1234", "999")) << endl;
+	cout << Reverse(Mins_str("4", "0")) << endl;
+	cout << Reverse(Divs_str("123", "35")) << endl;
+	cout << Compare("321", "077777") << endl;
+	cout << sizeof(unsigned int) << endl;
+	cout << StoI("321321") << endl;
+	cout << ItoS(123123) << endl;
+	Str_To_LongLong("123");
+	LongLong a, b, c;
+	cin >> a;
 	cin >> b;
-	char* answer = 0;
-	answer = Reverse("0005000001");
-	cout << answer << endl;
-	delete[] answer;
-	answer =  Cut(Plus_Str(Reverse("1000000000"), Reverse("5000")));
-	cout << answer << endl;
-	delete[] answer;
-	answer = Cut(Minus_Str(Reverse("1000000000"), Reverse("5000")));
-	cout << answer << endl;
-	delete[] answer;
-	answer = Mul_Str(Reverse("1000000000"), Reverse("5000"));
-	cout << answer << endl;
-	delete[] answer;
-	/*answer = Div_Str(Reverse("1000000000"), Reverse("5000"));
-	cout << answer << endl;
-	delete[] answer;
+	cout << "a = " << a << endl;
 	cout << "b = " << b << endl;
 	c = a + b;
-	cout << "c = " << c << endl;
+	cout << "c = a + b = " << c << endl;
 	c = a - b;
-	cout << "c = " << c << endl;
-	c = a / b;
-	cout << "c = " << c << endl;
+	cout << "c = a - b = " << c << endl;
 	c = a * b;
-	cout << "c = " << c << endl;*/
-	return 0;
+	cout << "c = a * b = " << c << endl;
+	c = a / b;
+	cout << "c = a / b = " << c << endl;
 }
