@@ -247,25 +247,25 @@ LongLong LongLong::operator+(LongLong& copy) {
 	string this_str = LongLong_To_Str(*this);
 	string copy_str = LongLong_To_Str(copy);
 	string answer = Summ_str(this_str, copy_str);
-	return(Str_To_LongLong(answer));
+	return(Str_To_LongLong(Reverse(answer)));
 }
 LongLong LongLong::operator-(LongLong& copy) {
 	string this_str = LongLong_To_Str(*this);
 	string copy_str = LongLong_To_Str(copy);
 	string answer = Mins_str(this_str, copy_str);
-	return(Str_To_LongLong(answer));
+	return(Str_To_LongLong(Reverse(answer)));
 }
 LongLong LongLong::operator*(LongLong& copy) {
 	string this_str = LongLong_To_Str(*this);
 	string copy_str = LongLong_To_Str(copy);
 	string answer = Multpl_str(this_str, copy_str);
-	return(Str_To_LongLong(answer));
+	return(Str_To_LongLong(Reverse(answer)));
 }
 LongLong LongLong::operator/(LongLong& copy) {
 	string this_str = LongLong_To_Str(*this);
 	string copy_str = LongLong_To_Str(copy);
 	string answer = Divs_str(this_str, copy_str);
-	return(Str_To_LongLong(answer));
+	return(Str_To_LongLong(Reverse(answer)));
 }
 LongLong& LongLong::operator=(const LongLong& copy) {
 	old = copy.old;
@@ -289,6 +289,7 @@ istream& operator>>(istream& is, LongLong& copy) {
 }
 ostream& operator<<(ostream& os, LongLong& copy) {
 	string old = Multpl_str(ItoS(copy.old), Reverse("4294967295"));
-	os << Reverse(Summ_str(old, ItoS(copy.young)));
+	string numb = Summ_str(old, ItoS(copy.young));
+	os << Reverse(numb);
 	return(os);
 }

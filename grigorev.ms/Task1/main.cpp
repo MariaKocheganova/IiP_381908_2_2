@@ -8,7 +8,7 @@ int main() {
 	cout << ans << endl;
 	cout << Reverse("321") << endl;
 	cout << Reverse(Multpl_str("1234", "999")) << endl;
-	cout << Reverse(Mins_str("4", "0")) << endl;
+	cout << Reverse(Mins_str("0004", "0")) << endl;
 	cout << Reverse(Divs_str("123", "35")) << endl;
 	cout << Compare("321", "077777") << endl;
 	cout << sizeof(unsigned int) << endl;
@@ -21,7 +21,8 @@ int main() {
 	cout << "a = " << a << endl;
 	cout << "b = " << b << endl;
 	c = a + b;
-	cout << "c = a + b = " << c << endl;
+	cout << "c = a + b = ";
+	cout << c << endl;
 	c = a - b;
 	cout << "c = a - b = " << c << endl;
 	c = a * b;
