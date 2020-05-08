@@ -5,7 +5,7 @@ private:
 	int rub;
 	int kop;
 public:
-	int kop1,rubk,clor,clork,rubk1;
+	//убрать int kop1,rubk,clor,clork,rubk1;
 	 int n, n1;
 	float f;
 	Money() {
