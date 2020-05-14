@@ -142,9 +142,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\Загрузки\coniow.h" />
     <ClInclude Include="TextEditor.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="coniow.c" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TextEditor.cpp" />
   </ItemGroup>
