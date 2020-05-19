@@ -1,0 +1,9 @@
+The first polynomial:2x^02
+
+The second polynomial:2x^02
+
+Two polynomials summarized:4x^04
+
+Derivative of the first one:-7.84591e+298x^-1-1.45682e+144
+
+Value of the first one at x:2
