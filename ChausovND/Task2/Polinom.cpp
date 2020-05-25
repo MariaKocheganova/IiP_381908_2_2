@@ -117,8 +117,8 @@ Polinom Polinom::OrigDeriv()
 }
 Polinom Polinom::equalPowers(Polinom s)
 {
-	int j = 0;
-	for (int i = power; int q = 0 == 0; i--)
+	int j = 0, q = 0;
+	for (int i = power; q == 0; i--)
 	{
 		j = i;
 		q = s.coeff[i];
@@ -157,10 +157,7 @@ double Polinom::xValue(double x)
 {
 	double res=0;
 	for (int i = 0; i < power + 1; i++)
-	{
-		cout << res<< endl;
 		res += coeff[i] * pow(x, i);
-	}
 	return res;
 }
 Polinom::~Polinom()
@@ -183,3 +180,4 @@ Polinom::Polinom(const Polinom& c)
 	for (int i = 0; i <= power; i++)
 		coeff[i] = c.coeff[i];
 }
+//без тестировани€ индексации и работы с файлами
