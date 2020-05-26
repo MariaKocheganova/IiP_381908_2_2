@@ -1,4 +1,4 @@
-#include "Header.h"
+#include "Tabulator.h"
 int main() {
 	setlocale(LC_ALL, "Russian");
 	Tabulator x;
@@ -11,6 +11,7 @@ int main() {
 		case 1:
 			cout << "Задайте интервал табуирования a и b" << endl;
 			cin >> a1 >> b1;
+			cout << a1 << b1;
 			x.interval(a1, b1);
 			break;
 		case 2:
@@ -19,10 +20,15 @@ int main() {
 			x.num(n1);
 			break;
 		case 3:
-			x.interval1();
+			float s[2];
+			 x.interval1(s[0],s[1]);
+			 cout << s[1] << s[0];
+			
 			break;
 		case 4:
-			x.num1();
+			int n0;
+			n0=x.num1();
+			cout << n0;
 			break;
 		case 5:
 			x.tab();
