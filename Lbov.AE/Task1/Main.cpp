@@ -58,9 +58,12 @@ int  main() {
 			break;
 		case 3:
 			cout << "¬ведите баланс с которым будет сравнение ";
-			cin >> n; cin >> n1;
+			cin >> n >> n1;
 			Money m1(n, n1);
-			rub == m1;
+			if (rub == m1)
+				cout << "—уммы равны" << endl;
+			else
+				cout << "—уммы не равны" << endl;
 			break;
 
 		}

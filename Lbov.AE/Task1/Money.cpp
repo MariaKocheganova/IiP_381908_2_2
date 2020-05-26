@@ -50,22 +50,4 @@ Money Money :: operator /(const Money& rub0) {
 	return temp;
 }
 
-Money Money :: operator ==(const Money& rub0) {
-	Money temp;
-	if (rub > rub0.rub) 
-		cout << "Текущий баланс больше введёной суммы" << endl;
-	else if (rub == rub0.rub) {
-		if (kop > rub0.kop)
-			cout << "Текущий баланс больше введёной суммы" << endl;
-		else if (kop == rub0.kop)
-			cout << "Баланс и введённая сумма равны";
-		else
-			cout << "Введённая сумма больше баланса" << endl;
-	}
-	else
-		cout << "Введённая сумма больше баланса" << endl;
-
-	return temp;
-}
-
 

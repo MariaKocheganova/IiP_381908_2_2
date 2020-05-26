@@ -24,7 +24,9 @@ public:
 	Money operator/(const Money& rub0);
 	friend istream& operator>>(istream& is, Money& s);
 	friend ostream& operator<<(ostream& os, const Money& s);
-	Money operator==(const Money& rub0);
+	bool  operator==(const Money& rub0) {
+		return(rub == rub0.rub && kop == rub0.kop);
+	}
 
 
 
