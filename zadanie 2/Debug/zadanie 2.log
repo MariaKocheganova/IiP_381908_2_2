@@ -1,0 +1,5 @@
+﻿  zadanie 2.cpp
+C:\Users\Sobaka\source\repos\zadanie 2\zadanie 2\Octa.h(20,22): warning C4018:  <: несоответствие типов со знаком и без знака
+C:\Users\Sobaka\source\repos\zadanie 2\zadanie 2\Octa.h(20,41): warning C4018:  <: несоответствие типов со знаком и без знака
+C:\Users\Sobaka\source\repos\zadanie 2\zadanie 2\Octa.h(29): warning C4715:  operator==: значение возвращается не при всех путях выполнения
+  zadanie 2.vcxproj -> C:\Users\Sobaka\source\repos\zadanie 2\Debug\zadanie 2.exe
