@@ -36,23 +36,24 @@ public:
 		bool flag = 1;
 		while (flag)
 		{
-			cout << "1. Add an observation" << endl;
-			cout << "2. Show date and time of the first observation" << endl;
-			cout << "3. Show an observation (enter date and time)" << endl;
-			cout << "4. Show a series of observations (enter date)" << endl;
-			cout << "5. Show average temperature..." << endl;
-			cout << "6. Save observation history to a file" << endl;
-			cout << "7. Read observation history from a file" << endl;
-			cout << "8. Exit" << endl;
+			cout << "Choose an option:" << endl;
+			cout << "1) Show date and time of the first observation" << endl;
+			cout << "2) Add an observation" << endl;
+			cout << "3) Show an observation (enter date and time)" << endl;
+			cout << "4) Show a series of observations (enter date)" << endl;
+			cout << "5) Show average temperature..." << endl;
+			cout << "6) Save observation history to a file" << endl;
+			cout << "7) Read observation history from a file" << endl;
+			cout << "8) Exit" << endl;
 			int menu;
 			cin >> menu;
 			switch (menu)
 			{
 			case 1:
-				addObs();
+				firstObs();
 				break;
 			case 2:
-				firstObs();
+				addObs();
 				break;
 			case 3:
 				showObs();
@@ -71,6 +72,10 @@ public:
 				break;
 			case 8:
 				flag = 0;
+				cout << "Exiting...";
+				break;
+			default:
+				cout << "Wrong option number. Enter a number from 1-8:" << endl;
 				break;
 			}
 		}
