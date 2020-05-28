@@ -36,6 +36,7 @@ Date::Date(string s)
 		STR += s[0];
 		STR += s[1];
 
+
 		Day = atoi(STR.c_str());
 
 		STR = "";
@@ -129,23 +130,23 @@ bool Date::operator>(const Date& c)
 {
 	if (Year > c.Year)
 	{
-		true;
+		return true;
 	}
 	else
 	{
 		if ((Year == c.Year) && (Month > c.Month))
 		{
-			true;
+			return true;
 		}
 		else
 		{
 			if ((Year == c.Year) && (Month == c.Month) && (Day > c.Day))
 			{
-				true;
+				return true;
 			}
 			else
 			{
-				false;
+				return false;
 			}
 		}
 	}
@@ -155,23 +156,23 @@ bool Date::operator<(const Date& c)
 {
 	if (Year < c.Year)
 	{
-		true;
+		return	true;
 	}
 	else
 	{
 		if ((Year == c.Year) && (Month < c.Month))
 		{
-			true;
+			return	true;
 		}
 		else
 		{
 			if ((Year == c.Year) && (Month == c.Month) && (Day < c.Day))
 			{
-				true;
+				return true;
 			}
 			else
 			{
-				false;
+				return	false;
 			}
 		}
 	}

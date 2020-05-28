@@ -6,8 +6,8 @@ int main()
 {
 	int A, B;
 	do
-	{   /////////////////////////OPTIONS////////////////////////////////
-		//////1 for Plus// 2 for Minus// 3 for Comprasion
+	{
+
 		cin >> A;
 		if (A == 1)
 		{
