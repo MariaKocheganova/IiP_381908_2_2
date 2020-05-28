@@ -27,13 +27,14 @@ public:
 		name.push_back(name2);
 		cout << "Enter price: "; cin >> price2;
 		price.push_back(price2);
+		cout << "Entry added to the catalog successfully\n";
 	}
-	bool search(int brcd4)
+	int search(int brcd4)
 	{
 		for (int i = 0; i < brcd.size(); i++)
 			if (brcd4 == brcd[i])
-				return true;
-		return false;
+				return i;
+		return 1;
 	}
 
 private:
@@ -54,7 +55,7 @@ public:
 			cout << "2) Choose an item to buy..." << endl;
 			cout << "3) Display cheque" << endl;
 			cout << "4) Display item description..." << endl;
-			cout << "5) Remove the last item from the cheque" << endl;
+			cout << "5) Remove the last item from the cheque " << endl;
 			cout << "6) Exit" << endl;
 			cin >> menu;
 
@@ -70,13 +71,11 @@ public:
 				cout << "Enter barcode: "; cin >> brcd3;
 				menu = wrhs.search(brcd3);
 
-				if (menu == false)
+				if (menu == 1)
 					cout << "Found no item with such barcode" << endl;
 				else
 				{
-					int menu2;
 					cout << "Item found and added to the cheque" << endl;
-					cin >> menu2;
 					cheque.push_back(menu);
 				}
 				break;
@@ -84,8 +83,37 @@ public:
 			case 3:
 				formCheque();
 				break;
+			case 4:
+			{
+				int brcd5;
+				cout << "Enter barcode: "; cin >> brcd5;
+				menu = wrhs.search(brcd5);
+
+				if (menu == 1)
+					cout << "Found no item with such barcode" << endl;
+				else
+				{
+					int menu2;
+					cout << "Item found" << endl;
+					cout << "Name: " << wrhs.returnName(menu) << endl;
+					cout << "Price: " << wrhs.returnPrice(menu) << endl;
+				}
+				break;
+			}
+			case 5:
+				if (cheque.size() != 0)
+				{
+					cheque.pop_back();
+					cout << "----- The last added item has been removed from the cheque -----\n";
+				}
+				else
+					cout << "----- The cheque is empty -----\n";
+				break;
 			case 6:
 				flag = false;
+				break;
+			default:
+				cout << "Wrong action number. Enter a number from 1-6:" << endl;
 				break;
 			}
 		}
