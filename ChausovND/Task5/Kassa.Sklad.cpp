@@ -8,15 +8,15 @@ using namespace std;
 class Sklad
 {
 public:
-	string returnName(int i)
+	string returnName(int i) //возврат названи€ товара
 	{
 		return name[i];
 	}
-	int returnPrice(int i)
+	int returnPrice(int i)  //возврат стоимости товара
 	{
 		return price[i];
 	}
-	void newItem()
+	void newItem() //добавление нового товара в каталог
 	{
 		int brcd2, price2;
 		string name2;
@@ -29,25 +29,25 @@ public:
 		price.push_back(price2);
 		cout << "Entry added to the catalog successfully\n";
 	}
-	int search(int brcd4)
+	int search(int brcd4) //поиск нужного товара в каталоге
 	{
 		for (int i = 0; i < brcd.size(); i++)
 			if (brcd4 == brcd[i])
-				return i;
-		return 1;
+				return i; //если находим - возвращаем его индекс
+		return 1; //если не находим - возвращаем 1 (будет использоватьс€ как false)
 	}
 
 private:
-	vector <int> brcd; vector <string>name; vector <int> price;
+	vector <int> brcd; vector <string>name; vector <int> price; //хранение штрихкода, названи€ и стоимости товара
 };
 
 class Kassa
 {
 public:
-	void menu()
+	void menu() //основное меню
 	{
 		int menu;
-		bool flag = true;
+		bool flag = true; //флажок дл€ определени€ необходимости повторного вывода меню
 		while (flag)
 		{
 			cout << "----- Choose an action -----" << endl;
@@ -59,12 +59,12 @@ public:
 			cout << "6) Exit" << endl;
 			cin >> menu;
 
-			switch (menu)
+			switch (menu)  //выбор пункта меню
 			{
 			case 1:
-				wrhs.newItem();
+				wrhs.newItem(); //добавление нового товара в каталог
 				break;
-			case 2:
+			case 2: //ѕоиск и добавление товара в чек
 			{
 				int brcd3;
 				cout << "----- Cash register -----\n";
@@ -80,10 +80,10 @@ public:
 				}
 				break;
 			}
-			case 3:
+			case 3: //вывод чека
 				formCheque();
 				break;
-			case 4:
+			case 4: //вывод информации о выбранном по штрихкоду товаре
 			{
 				int brcd5;
 				cout << "Enter barcode: "; cin >> brcd5;
@@ -100,7 +100,7 @@ public:
 				}
 				break;
 			}
-			case 5:
+			case 5: //удаление последнего добавленного в чек товара
 				if (cheque.size() != 0)
 				{
 					cheque.pop_back();
@@ -109,29 +109,29 @@ public:
 				else
 					cout << "----- The cheque is empty -----\n";
 				break;
-			case 6:
-				flag = false;
+			case 6: //выход из программы
+				flag = false; //сн€тие флажка при желании выйти из программы
 				break;
-			default:
+			default: //просьба выбрать правильный номер действи€
 				cout << "Wrong action number. Enter a number from 1-6:" << endl;
 				break;
 			}
 		}
 	}
-	void formCheque()
+	void formCheque() //формирование чека
 	{
 		int	 total = 0;
 		if (cheque.size() == 0)
 			cout << "The cheque is empty" << endl;
-		else
+		else 
 		{
 			int q = 1;
-			sort(cheque.begin(), cheque.end());
+			sort(cheque.begin(), cheque.end()); 
 			cheque.push_back(9999);
 			cout << "----- The cheque -----" << endl;
-			for (int i = 1; i < cheque.size(); i++)
+			for (int i = 1; i < cheque.size(); i++) //заполнение чека информацией о товарах
 			{
-				if (cheque[i - 1] != cheque[i])
+				if (cheque[i - 1] != cheque[i]) 
 				{
 					cout << "Name: " << wrhs.returnName(cheque[i - 1]) << endl;
 					cout << "Price: " << wrhs.returnPrice(cheque[i - 1]) << endl;
@@ -140,8 +140,8 @@ public:
 					cout << "--------------------" << endl;
 					q = 1;
 				}
-				else
-					q++;
+				else //если товар повтор€етс€ - увеличить количество, не добавл€€ ещЄ один
+					q++; 
 			}
 			cout << "Total: " << total << endl;
 			cheque.pop_back();
@@ -150,14 +150,5 @@ public:
 
 private:
 	Sklad wrhs;
-	vector <int> cheque;
+	vector <int> cheque; //хранение чека
 };
-
-int main()
-{
-	Kassa K;
-	K.menu();
-
-	system("pause");
-	return 0;
-}
