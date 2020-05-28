@@ -29,4 +29,6 @@ int main() {
 	cout << "c = a * b = " << c << endl;
 	c = a / b;
 	cout << "c = a / b = " << c << endl;
+	LongLong abs[10];
+	cin >> abs[3];
 }
