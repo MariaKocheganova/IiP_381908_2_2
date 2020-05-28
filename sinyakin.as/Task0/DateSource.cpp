@@ -1,4 +1,4 @@
-#include "Header.h"
+#include "DateHeader.h"
 
 using namespace std;
 
@@ -20,19 +20,38 @@ Date::Date(const Date& s)
 
 Date::Date(string s)
 {
+	Date();
+	int X = 0;
+	for (int i = 0; i < 10; i++)
+	{
+		if (((s[i] < '0') || (s[i] > '9')) && ((i == 0) || (i == 1) || (i == 3) || (i == 4) || (i == 6) || (i == 7) || (i == 8) || (i == 9)))
+		{
+			abort();
+		}
+	}
+	if (X == 0)
+	{
+		string STR = "";
 
-	string s1;
-	string s2;
-	string s3;
-	s1.assign(s, 0, 2);
-	int i = std::stoi(s1);
-	s2.assign(s, 3, 5);
-	int i2 = std::stoi(s2);
-	Day = i;
-	s3.assign(s, 6, 10);
-	int i3 = std::stoi(s3);
-	Month = i2;
-	Year = i3;
+		STR += s[0];
+		STR += s[1];
+
+		Day = atoi(STR.c_str());
+
+		STR = "";
+		STR += s[3];
+		STR += s[4];
+
+		Month = atoi(STR.c_str());
+
+		STR = "";
+		STR += s[6];
+		STR += s[7];
+		STR += s[8];
+		STR += s[9];
+
+		Year = atoi(STR.c_str());
+	}
 }
 
 
@@ -60,17 +79,15 @@ Date Date::operator+(int j)
 	res.Day = res.Day + j;
 	while (res.Day > 30)
 	{
-		if (res.Day > 30)
+		res.Day = res.Day - 30;
+		res.Month++;
+		if (res.Month > 12)
 		{
-			res.Day = res.Day - 30;
-			res.Month++;
-			if (res.Month > 12)
-			{
-				res.Month = res.Month - 12;
-				res.Year++;
-			}
-
+			res.Month = res.Month - 12;
+			res.Year++;
 		}
+
+
 	}
 	return res;
 }
@@ -106,6 +123,58 @@ bool Date::operator==(const Date& c)
 		return true;
 	else return false;
 
+}
+
+bool Date::operator>(const Date& c)
+{
+	if (Year > c.Year)
+	{
+		true;
+	}
+	else
+	{
+		if ((Year == c.Year) && (Month > c.Month))
+		{
+			true;
+		}
+		else
+		{
+			if ((Year == c.Year) && (Month == c.Month) && (Day > c.Day))
+			{
+				true;
+			}
+			else
+			{
+				false;
+			}
+		}
+	}
+}
+
+bool Date::operator<(const Date& c)
+{
+	if (Year < c.Year)
+	{
+		true;
+	}
+	else
+	{
+		if ((Year == c.Year) && (Month < c.Month))
+		{
+			true;
+		}
+		else
+		{
+			if ((Year == c.Year) && (Month == c.Month) && (Day < c.Day))
+			{
+				true;
+			}
+			else
+			{
+				false;
+			}
+		}
+	}
 }
 
 bool Date::operator!=(const Date& c)
