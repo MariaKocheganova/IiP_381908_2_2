@@ -5,6 +5,12 @@
 #include <cstdlib>
 using namespace std;
 
+struct S 
+{
+	int year, month, day, hour;
+	double temp;
+};
+
 class Thermometer
 {
 public:
@@ -276,8 +282,40 @@ public:
 		in.close();
 	}
 
+	Thermometer()
+	{
+		ar = 0;
+		arsize = 0;
+	}
+	Thermometer(int y, int m, int d, int h, double t)
+	{
+		arsize = 1;
+		ar = new S[1];
+		ar[0].year = y;
+		ar[0].month = m;
+		ar[0].day = d;
+		ar[0].hour = h;
+		ar[0].temp = t;
+	}
+	~Thermometer()
+	{
+		delete[]ar;
+		arsize = 0;
+	}
+	Thermometer(const Thermometer& T1)
+	{
+		arsize = T1.arsize;
+		ar = new S[arsize];
+		for (int i; i < arsize; i++)
+		{
+			ar[i].year = T1.ar[i].year;
+			ar[i].month = T1.ar[i].month;
+		}
+	}
 private:
-	vector<vector<vector<vector<int> > > > date;
+	vector<vector<vector<vector<int>>>> date;
+	S* ar;
+	int arsize;
 };
 
 int main() 
