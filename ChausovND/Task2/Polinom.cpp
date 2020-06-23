@@ -180,4 +180,3 @@ Polinom::Polinom(const Polinom& c)
 	for (int i = 0; i <= power; i++)
 		coeff[i] = c.coeff[i];
 }
-//без тестировани€ индексации и работы с файлами

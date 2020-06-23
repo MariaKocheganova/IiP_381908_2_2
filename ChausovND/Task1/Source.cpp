@@ -44,16 +44,12 @@ Vector3D& Vector3D::operator=(const Vector3D& vec) //присваивание
 
 bool Vector3D ::operator== (const Vector3D& vec) //сравнение
 {
-    return ((vec.x == x) && (vec.y == y) && (vec.z == z));
+    return abs (((sqrt(pow(x, 2) + pow(y, 2) + pow(z, 2))) == (sqrt(pow(vec.x, 2) + pow(vec.y, 2) + pow(vec.z, 2)))));
 }
 
 ostream& operator<<(ostream& stream, const Vector3D& vec)
 {
-    stream << "Result: ";
-    if ((vec.x != 0) && (vec.y == 0) && (vec.z == 0))
-        stream << vec.x << endl << endl;
-    else 
-        stream << "(" << vec.x << ";" << vec.y << ";" << vec.z << ")" << endl << endl;
+    stream << "Result: " << "(" << vec.x << ";" << vec.y << ";" << vec.z << ")" << endl << endl;
     return stream;
 }
 
