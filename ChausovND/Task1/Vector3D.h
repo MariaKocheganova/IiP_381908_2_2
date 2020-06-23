@@ -16,7 +16,7 @@ public:
     double operator* (const Vector3D& vec); //скалярное произведение
     Vector3D& operator=(const Vector3D& vec); //присваивание
     bool operator==(const Vector3D& vec); //сравнение
-    friend std::ostream& operator<<(std::ostream& stream, const Vector3D& vec);
-    friend std::istream& operator>>(std::istream& stream, Vector3D& vec);
+    friend ostream& operator<<(ostream& stream, const Vector3D& vec);
+    friend istream& operator>>(istream& stream, Vector3D& vec);
     ~Vector3D();
 };

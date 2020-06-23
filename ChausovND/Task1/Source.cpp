@@ -1,4 +1,5 @@
 #include "Vector3D.h"
+using namespace std;
 
 Vector3D::Vector3D()
 {
@@ -46,7 +47,7 @@ bool Vector3D ::operator== (const Vector3D& vec) //сравнение
     return ((vec.x == x) && (vec.y == y) && (vec.z == z));
 }
 
-std::ostream& operator<<(std::ostream& stream, const Vector3D& vec)
+ostream& operator<<(ostream& stream, const Vector3D& vec)
 {
     stream << "Result: ";
     if ((vec.x != 0) && (vec.y == 0) && (vec.z == 0))
@@ -56,7 +57,7 @@ std::ostream& operator<<(std::ostream& stream, const Vector3D& vec)
     return stream;
 }
 
-std::istream& operator>>(std::istream& stream, Vector3D& vec) 
+istream& operator>>(istream& stream, Vector3D& vec) 
 {
     stream >> vec.x >> vec.y >> vec.z;
     return stream;
