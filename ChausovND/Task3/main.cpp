@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-    int fnum(), mnum;
+    int mnum;
     Integrals In1;
     In1.input(); cout << endl;
 
@@ -17,15 +17,22 @@ int main()
     switch (mnum)
     {
     case 1:
+        In1.fnum();
         In1.methodL();
+        In1.getresult();
         break;
     case 2:
+        In1.fnum();
         In1.methodR();
+        In1.getresult();
         break;
     case 3:
+        In1.fnum();
         In1.methodM();
+        In1.getresult();
         break;
     default:
         cout << "Wrong number" << endl;
+        break;
     }
 }

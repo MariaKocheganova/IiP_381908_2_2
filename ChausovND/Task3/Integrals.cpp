@@ -21,9 +21,7 @@ Integrals::Integrals(const Integrals& s)
     q = s.q;
 }
 
-double cAvg = 0;
-
-int fnum()
+int Integrals::fnum() //выбор функции
 {
     int func;
     cout << "Choose a function: \n";
@@ -32,26 +30,22 @@ int fnum()
     cout << "3) y = sqrt(x^4 + 6x + 5)" << endl << endl;
 
     cin >> func;
+    f = func;
     return func;
 }
 
-int f = fnum();
-
-double func(double x, int fnum2)
+double func(double x, int fnum2) //вычисление 
 {
     switch (fnum2)
     {
     case 1:
         return cos(x);
-        f = fnum2;
         break;
     case 2:
         return pow(x, 3);
-        f = fnum2;
         break;
     case 3:
         return sqrt(pow(x, 4) + 6 * x + 5);
-        f = fnum2;
         break;
     }
 }
@@ -71,8 +65,7 @@ double Integrals::methodM()
         c = c + t;
     }
     cAvg = cAvg + c;
-    cout << "Approximate value (midpoint method): " << c << endl;
-    return c;
+    return cAvg;
 }
 
 double Integrals::methodL()
@@ -90,8 +83,7 @@ double Integrals::methodL()
         c = c + t;
     }
     cAvg = cAvg + c;
-    cout << "Approximate value (left endpoint method): " << c << endl;
-    return c;
+    return cAvg;
 }
 
 double Integrals::methodR()
@@ -109,8 +101,7 @@ double Integrals::methodR()
         c = c + t;
     }
     cAvg = cAvg + c;
-    cout << "Approximate value (right endpoint method): " << c << endl;
-    return c;
+    return cAvg;
 }
 
 void Integrals::input()
@@ -121,4 +112,9 @@ void Integrals::input()
     cin >> b;
     cout << "Enter the number of segments\n";
     cin >> q;
+}
+
+void Integrals::getresult()
+{
+    cout << "Approximate value: " << cAvg << endl;
 }

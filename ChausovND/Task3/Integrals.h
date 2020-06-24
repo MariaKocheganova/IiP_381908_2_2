@@ -2,7 +2,6 @@
 #include <iostream>
 using namespace std;
 
-int fnum();
 
 class Integrals
 {
@@ -11,9 +10,12 @@ public:
     Integrals(int a2, int b2, int q2);
     Integrals(const Integrals& s);
 
+    int fnum();
     double methodL(), methodR(), methodM();
     void input();
+    void getresult();
 
 private:
-    int a, b, q;
+    int mnum, q, f;
+    double a, b, cAvg = 0;
 };
