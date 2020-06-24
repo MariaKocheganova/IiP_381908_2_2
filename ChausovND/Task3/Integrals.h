@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include <iostream>
 using namespace std;
 
@@ -9,10 +9,10 @@ public:
     Integrals(int a2, int b2, int q2);
     Integrals(const Integrals& s);
 
-    int fnum(); //выбор функции
+    int fnum(); //РІС‹Р±РѕСЂ С„СѓРЅРєС†РёРё
     double methodL(), methodR(), methodM(); //left endpoint method, right endpoint method, midpoint method
-    void input(); //ввод координат и количества сегментов
-    void getresult(); //вывод результата
+    void input(); //РІРІРѕРґ РєРѕРѕСЂРґРёРЅР°С‚ Рё РєРѕР»РёС‡РµСЃС‚РІР° СЃРµРіРјРµРЅС‚РѕРІ
+    void getresult(); //РІС‹РІРѕРґ СЂРµР·СѓР»СЊС‚Р°С‚Р°
 
 private:
     int mnum, q, f;

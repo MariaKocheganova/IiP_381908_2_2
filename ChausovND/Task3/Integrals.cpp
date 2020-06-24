@@ -1,4 +1,4 @@
-#include <iostream>
+п»ї#include <iostream>
 #include "Integrals.h"
 using namespace std;
 
@@ -21,7 +21,7 @@ Integrals::Integrals(const Integrals& s)
     q = s.q;
 }
 
-int Integrals::fnum() //выбор функции
+int Integrals::fnum() //РІС‹Р±РѕСЂ С„СѓРЅРєС†РёРё
 {
     int func;
     cout << "Choose a function: \n";
@@ -34,7 +34,7 @@ int Integrals::fnum() //выбор функции
     return func;
 }
 
-double func(double x, int fnum2) //вычисление функции
+double func(double x, int fnum2) //РІС‹С‡РёСЃР»РµРЅРёРµ С„СѓРЅРєС†РёРё
 {
     switch (fnum2)
     {
@@ -104,7 +104,7 @@ double Integrals::methodR() //right endpoint method
     return cAvg;
 }
 
-void Integrals::input() //ввод координат и количества сегментов
+void Integrals::input() //РІРІРѕРґ РєРѕРѕСЂРґРёРЅР°С‚ Рё РєРѕР»РёС‡РµСЃС‚РІР° СЃРµРіРјРµРЅС‚РѕРІ
 {
     cout << "Enter coordinate 1\n";
     cin >> a;
@@ -114,7 +114,7 @@ void Integrals::input() //ввод координат и количества сегментов
     cin >> q;
 }
 
-void Integrals::getresult() //вывод результата
+void Integrals::getresult() //РІС‹РІРѕРґ СЂРµР·СѓР»СЊС‚Р°С‚Р°
 {
     cout << "Approximate value: " << cAvg << endl;
 }
