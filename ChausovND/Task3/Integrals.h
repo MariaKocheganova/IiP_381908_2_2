@@ -2,7 +2,6 @@
 #include <iostream>
 using namespace std;
 
-
 class Integrals
 {
 public:
@@ -10,10 +9,10 @@ public:
     Integrals(int a2, int b2, int q2);
     Integrals(const Integrals& s);
 
-    int fnum();
-    double methodL(), methodR(), methodM();
-    void input();
-    void getresult();
+    int fnum(); //выбор функции
+    double methodL(), methodR(), methodM(); //left endpoint method, right endpoint method, midpoint method
+    void input(); //ввод координат и количества сегментов
+    void getresult(); //вывод результата
 
 private:
     int mnum, q, f;

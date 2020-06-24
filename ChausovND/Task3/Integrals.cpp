@@ -34,7 +34,7 @@ int Integrals::fnum() //выбор функции
     return func;
 }
 
-double func(double x, int fnum2) //вычисление 
+double func(double x, int fnum2) //вычисление функции
 {
     switch (fnum2)
     {
@@ -50,7 +50,7 @@ double func(double x, int fnum2) //вычисление
     }
 }
 
-double Integrals::methodM()
+double Integrals::methodM() //midpoint method
 {
     double step = (b - a) / q, y = 0, c = 0, t = 0, x1, x2, y1, y2;
 
@@ -68,7 +68,7 @@ double Integrals::methodM()
     return cAvg;
 }
 
-double Integrals::methodL()
+double Integrals::methodL() //left endpoint method
 {
     double step = (b - a) / q, y = 0, c = 0, t = 0, x1, x2, y1, y2;
 
@@ -86,7 +86,7 @@ double Integrals::methodL()
     return cAvg;
 }
 
-double Integrals::methodR()
+double Integrals::methodR() //right endpoint method
 {
     double step = (b - a) / q, y = 0, c = 0, t = 0, x1, x2, y1, y2;
 
@@ -104,7 +104,7 @@ double Integrals::methodR()
     return cAvg;
 }
 
-void Integrals::input()
+void Integrals::input() //ввод координат и количества сегментов
 {
     cout << "Enter coordinate 1\n";
     cin >> a;
@@ -114,7 +114,7 @@ void Integrals::input()
     cin >> q;
 }
 
-void Integrals::getresult()
+void Integrals::getresult() //вывод результата
 {
     cout << "Approximate value: " << cAvg << endl;
 }
